@@ -237,7 +237,7 @@ class MainActivity : AppCompatActivity() {
             val timestamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(Date())
             val storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES) ?: cacheDir
             val imageFile = File.createTempFile("QRPRINT_${timestamp}_", ".jpg", storageDir)
-            val uri = FileProvider.getUriForFile(this, "${applicationId}.fileprovider", imageFile)
+            val uri = FileProvider.getUriForFile(this, "${packageName}.fileprovider", imageFile)
             cameraPhotoUri = uri
             Intent(MediaStore.ACTION_IMAGE_CAPTURE).apply {
                 putExtra(MediaStore.EXTRA_OUTPUT, uri)
